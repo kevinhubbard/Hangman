@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (e) => {
 	e.preventDefault();
-
+	
 	let number = Math.floor(Math.random()*10)+1;
 	var guess = document.getElementById('guess');
 
@@ -80,9 +80,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
 		var brian = new Person('brian h', 1994, dateNow);
 			elB = brian.name + ' age: '+ brian.age();
 		b.textContent = elB;
-		
+
 
 	var elDate = document.getElementById('footDate');
 		elDate.textContent = dateNow;
 
+		
 });
