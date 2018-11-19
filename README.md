@@ -1,2 +1,0 @@
-# Hangman
-JS hangman game
