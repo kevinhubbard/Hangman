@@ -30,12 +30,23 @@ document.addEventListener('DOMContentLoaded', (e) => {
 			guessLeft--;
 			if (guessLeft === 0) {
 				gameOutput.textContent = 'you lost the word was ' + ans;
+				window.setTimeout(function(){reset();}, 3000); //resets game
+			} else {
+				
+				inputEle.textContent = key + ' is in not the answer ';
+				guessEle.textContent = guessLeft;
 			}
-			inputEle.textContent = key + ' is in not the answer ';
-			guessEle.textContent = guessLeft;
+
 		}
 	});
 
-
+	function reset(){
+		guessLeft = 4;
+		keyInput = [];
+		guessEle.textContent = guessLeft;
+		gameOutput.textContent = '';
+		inputEle.textContent = '';
+		ans = randomWord();
+	}
 
 });
