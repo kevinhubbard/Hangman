@@ -1,89 +1,41 @@
 document.addEventListener('DOMContentLoaded', (e) => {
 	e.preventDefault();
-	
-	let number = Math.floor(Math.random()*10)+1;
-	var guess = document.getElementById('guess');
+	var gameOutput = document.getElementById('gameOutput');
+	var guessEle = document.getElementById('guess');
+	var inputEle = document.getElementById('userInput');
+	var hint = document.getElementById('hint');
+	var guessLeft = 4;
+	var keyInput = [];
+	var words = ['one', 'two', 'three'];
+	var ans = randomWord();
+	guessEle.textContent = guessLeft;
 
-	var main = document.getElementById('main');
+
+	function randomWord() {
+		var randWord = words[Math.floor(Math.random() * words.length)];
+		console.log(`The answer will be: ${randWord}.`);
+		return randWord
+	}
 
 
-	document.addEventListener('keyup', function(event){
-		
+
+	document.addEventListener('keyup', function(event) { //listens to user key press
 		var key = event.key;
-		if(key === "Enter"){
-			checkAnswer();
-		} else {
-			guess.append(key);
+		keyInput.push(key); //adds user input to array
+		console.log(keyInput);
+		if (ans.includes(key)) { //if user input is in answer alert user
+			inputEle.textContent = key + ' is in the answer';
+			guessEle.textContent = guessLeft;
+		} else { //alert user if guess is not in word and subtract guess
+			guessLeft--;
+			if (guessLeft === 0) {
+				gameOutput.textContent = 'you lost the word was ' + ans;
+			}
+			inputEle.textContent = key + ' is in not the answer ';
+			guessEle.textContent = guessLeft;
 		}
 	});
 
 
-	function randNumber (ans) {
-		main.append(ans);
-	}
-	randNumber(number);
 
-
-	
-	function checkAnswer(){
-		var input = document.getElementById('guess').innerText;
-		number = JSON.stringify(number);
-
-		if(input === number){
-			var win = document.createElement('h1');
-			var w = document.createTextNode('YOU WIN!!!');
-			win.append(w);
-			main.append(win);
-			setTimeout(function(){
-				win.remove();
-				guess.removeChild(guess.firstChild);
-
-			}, 2000)
-		} else {
-			var loss = document.createElement('h1');
-			var l = document.createTextNode('YOU LOSE!!!');
-			loss.append(l);
-			main.append(loss);
-			setTimeout(function(){
-				loss.remove();
-				guess.removeChild(guess.firstChild);
-				randomNumber()
-			}, 2000)
-		}
-	}
-
-	var date = new Date();
-		var dateNow = date.getFullYear();
-
-	function Person(name, born, year){
-		this.name = name;
-		this.born = born;
-		this.year = year;
-
-		this.age = function(){
-			return this.year - this.born
-		};
-	}
-
-	var me = new Person('kevin Jr', 1991, dateNow );
-
-	var d = document.getElementById('debt');
-		var per = me.name + ' age: ' + me.age();
-		d.textContent = per;
-
-	var e = document.getElementById('e');
-	var eric = new Person('eric h', 1995, dateNow);
-		elE = eric.name + ' age: ' + eric.age();
-		e.textContent = elE;
-
-	var b = document.getElementById('b');
-		var brian = new Person('brian h', 1994, dateNow);
-			elB = brian.name + ' age: '+ brian.age();
-		b.textContent = elB;
-
-
-	var elDate = document.getElementById('footDate');
-		elDate.textContent = dateNow;
-
-		
 });
