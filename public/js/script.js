@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 		} else { //alert user if guess is not in word and subtract guess
 			guessLeft--;
 			if (guessLeft === 0) {
+				guessEle.textContent = guessLeft;
 				gameOutput.textContent = 'you lost the word was ' + ans;
 				window.setTimeout(function(){reset();}, 3000); //resets game
 			} else {
