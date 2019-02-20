@@ -42,7 +42,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 			if(ansLog.length === 0){ //check to see if game has been won
 				console.log('congrats you won word was ' + ans);
-				reset();
+				
+				window.setTimeout(function(){reset();}, 3000); //resets game
 			} else {	//update player with game info
 			inputEle.textContent = key + ' is in the answer';
 			guessEle.textContent = guessLeft;
