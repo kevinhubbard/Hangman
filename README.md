@@ -1,2 +1,2 @@
 # Hangman
-initial test is number game then hangman
+hangman game using dom events

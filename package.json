@@ -1,6 +1,6 @@
 {
-  "name": "placeholder",
-  "version": "1.0.1",
+  "name": "hangman",
+  "version": "1.0.0",
   "description": "placeholder",
   "main": "server.js",
   "scripts": {
@@ -16,5 +16,13 @@
     "App"
   ],
   "author": "Kevin H",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinhubbard/Hangman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kevinhubbard/Hangman/issues"
+  },
+  "homepage": "https://github.com/kevinhubbard/Hangman#readme"
 }
